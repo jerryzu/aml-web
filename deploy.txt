@@ -1,0 +1,26 @@
+1.关于依赖
+参见auditing pom.xml
+
+2.部署后的目录xfsq
+[jerry@j web]$ pwd
+/app/tomcat/webapps/web
+[jerry@j web]$ tree
+.
+├── demo.html
+├── index.jsp
+├── META-INF
+│   ├── MANIFEST.MF
+└── WEB-INF
+    ├── classes
+    │   ├── c3p0-config.xml
+    │   └── lab
+    │       └── crazyspark
+    │           └── aml
+    │               ├── Demo.class
+    │               └── Test.class
+    ├── lib
+    │   ├── auditing-1.0-SNAPSHOT.jar //三方包位置
+    │   └── xmlbeans-2.6.0.jar
+    └── web.xml
+
+10 directories, 45 files
