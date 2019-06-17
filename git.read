@@ -1,0 +1,26 @@
+/app/work/aml/auditing/.gitignore
+.classpath
+.project
+.settings/*
+.vscode/launch.json
+.vscode/settings.json
+target/*
+
+git init
+git add .
+git commit -m "init"
+
+
+git remote add origin https://github.com/jerryzu/aml-web.git
+git push --set-upstream origin master
+
+git remote add origin https://github.com/jerryzu/aml-web.git
+git push origin
+git push --set-upstream origin master
+git push -u origin +master
+
+
+[jerry@j auditing]$ git add .
+[jerry@j auditing]$ git commit -m "打包依赖及"
+[jerry@j auditing]$ git push origin
+
