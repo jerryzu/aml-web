@@ -35,3 +35,21 @@ rm -rf ../logs/*
 ./startup.sh 
 tail -f ../logs/catalina.out 
 
+./shutdown.sh
+cp /app/work/aml/web/target/web.war /app/tomcat/webapps/
+rm -rf ../logs/*
+./startup.sh
+tail -f ../logs/catalina.out 
+
+copy
+/app/work/aml/web/src/main/java/c3p0-config.xml
+/app/work/aml/web/src/main/java/log4j2.properties
+to
+/app/work/aml/web/target/web.war
+
+/app/tomcat/bin/shutdown.sh
+ps -ef | grep /app/tomcat | awk '{print $2}' | xargs kill -9
+cp /app/work/aml/web/target/web.war /app/tomcat/webapps/
+rm -rf ../logs/*
+./startup.sh
+tail -f ../logs/catalina.out 

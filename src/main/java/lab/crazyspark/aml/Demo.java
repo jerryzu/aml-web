@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class demo
- */
 @WebServlet("/demo")
 public class Demo extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -19,18 +16,11 @@ public class Demo extends HttpServlet {
      */
     public Demo() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
         // request.setCharacterEncoding("UTF-8");
-        // response.getWriter().append("Served at: ").append(request.getContextPath());
 
         // 设置响应的编码格式为UTF-8编码，否则发生中文乱码现象
         response.setContentType("text/html;charset=UTF-8");
@@ -47,19 +37,15 @@ public class Demo extends HttpServlet {
         response.getWriter().write("<h1>" + method + "</h1><br>");
         response.getWriter().write("<h1>requestURi(请求URI）:</h1>");
         response.getWriter().write("<h1>" + requestURI + "</h1><br>");
+        response.getWriter().write("<h1>" + requestURL + "</h1><br>");
         response.getWriter().write("<h1>webname(应用名称):</h1>");
         response.getWriter().write("<h1>" + webName + "</h1><br>");
         response.getWriter().write("<h1>querrystring(查询字符串):</h1>");
         response.getWriter().write("<h1>" + querryString + "</h1>");
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 }
