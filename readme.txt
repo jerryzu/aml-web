@@ -53,3 +53,24 @@ cp /app/work/aml/web/target/web.war /app/tomcat/webapps/
 rm -rf ../logs/*
 ./startup.sh
 tail -f ../logs/catalina.out 
+
+
+在build节点加入一下语句使包正确的导入
+
+   <resources>
+            <resource>
+                <directory>${project.basedir}/lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                        <includes>
+                           <include>**/*.jar</include>
+                        </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>BOOT-INF/classes/</targetPath>
+            </resource>
+</resources>
+
+mvn package -f "/app/work/aml/auditing/pom.xml"
+cp /app/work/aml/auditing/target/auditing-1.0-SNAPSHOT.jar /app/work/aml/web/src/main/webapp/WEB-INF/lib/
+mvn package -f "/app/work/aml/web/pom.xml"

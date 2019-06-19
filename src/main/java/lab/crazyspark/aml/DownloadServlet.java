@@ -26,8 +26,6 @@ public class DownloadServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<String> strList = new ArrayList<String>();
-
         // File file = new File(filepath);
         // if (file.exists()) {
         // }
@@ -50,8 +48,6 @@ public class DownloadServlet extends HttpServlet {
 
         in.close();
         out.close();
-
-        request.setAttribute("strList", strList);
         request.getRequestDispatcher("/WEB-INF/ftl/expexcel.ftl").forward(request, response);
     }
 
