@@ -56,4 +56,51 @@
         <property name="minPoolSize">10</property>
         <property name="maxStatements">200</property>
     </named-config>
+  
+    <!-- This is my config for src-->
+    <named-config name="src">
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://rm-bp19v63q682asdrja.mysql.rds.aliyuncs.com:3306/tpedw?useUnicode=true&amp;characterEncoding=UTF8</property>
+        <property name="user">taipingbi_etl</property>
+        <property name="password">Tpstic123456</property>
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">30</property>
+        <property name="maxPoolSize">100</property>
+        <property name="minPoolSize">10</property>
+        <property name="maxStatements">200</property>
+        <property name="checkoutTimeout">3000</property>
+        <property name="acquireIncrement">2</property>
+        <property name="acquireRetryAttempts">0</property>
+        <property name="acquireRetryDelay">1000</property>
+        <property name="autoCommitOnClose">false</property>
+        <property name="automaticTestTable">Test</property>
+        <property name="breakAfterAcquireFailure">false</property>
+        <property name="idleConnectionTestPeriod">60</property>
+        <property name="maxStatementsPerConnection">0</property>
+    </named-config>
+
+
+  
+    <!-- This is my config for target-->
+    <named-config name="target">
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/antimoneylaundering?useUnicode=true&amp;characterEncoding=UTF8</property>
+        <property name="user">root</property>
+        <property name="password">gemini</property>
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">30</property>
+        <property name="maxPoolSize">100</property>
+        <property name="minPoolSize">10</property>
+        <property name="maxStatements">200</property>
+        <property name="checkoutTimeout">3000</property>
+        <property name="acquireIncrement">2</property>
+        <property name="acquireRetryAttempts">0</property>
+        <property name="acquireRetryDelay">1000</property>
+        <property name="autoCommitOnClose">false</property>
+        <property name="automaticTestTable">Test</property>
+        <property name="breakAfterAcquireFailure">false</property>
+        <property name="idleConnectionTestPeriod">60</property>
+        <property name="maxStatementsPerConnection">0</property>
+    </named-config>
+
 </c3p0-config>

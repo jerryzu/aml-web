@@ -1,7 +1,7 @@
 1.关于依赖
 参见auditing pom.xml
 
-2.部署后的目录xfsq
+2.部署后的目录结构
 [jerry@j web]$ pwd
 /app/tomcat/webapps/web
 [jerry@j web]$ tree

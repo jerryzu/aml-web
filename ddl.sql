@@ -16,7 +16,7 @@ truncate table tb_ins_unit;
 truncate table tb_lar_report;
 truncate table tb_sus_report;
 
-select concat('select count(1) rec, ''', table_name, ''' as tablename from ', table_name, ' union all ')
+select concat('select ''', table_name, ''' as tablename, count(1) rec from ', table_name, ' union all ')
 from information_schema.tables
 where table_Name like 'tb%'
 

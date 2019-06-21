@@ -8,6 +8,14 @@
   <name>web Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
+    <dependency>
+      <groupId>net.sourceforge.dynamicreports</groupId>
+      <artifactId>dynamicreports-core</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+
+
     <dependency>
       <groupId>lab.crazyspark.aml</groupId>
       <artifactId>auditing</artifactId>
