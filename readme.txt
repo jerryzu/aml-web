@@ -74,3 +74,14 @@ tail -f ../logs/catalina.out
 mvn package -f "/app/work/aml/auditing/pom.xml"
 cp /app/work/aml/auditing/target/auditing-1.0-SNAPSHOT.jar /app/work/aml/web/src/main/webapp/WEB-INF/lib/
 mvn package -f "/app/work/aml/web/pom.xml"
+
+[jerry@j 下载]$ ll *.jar
+-rw-rw-r--. 1 jerry jerry   18402 7月   3 16:08 eigenbase-properties-1.1.4.jar
+-rw-rw-r--. 1 jerry jerry   65958 7月   3 16:16 eigenbase-resgen-1.3.6.jar
+-rw-rw-r--. 1 jerry jerry  107048 1月   9 2014 eigenbase-xom-1.3.4.jar
+-rw-rw-r--. 1 jerry jerry 3545890 7月   3 15:04 mondrian-3.14.0.0-12.jar
+-rw-rw-r--. 1 jerry jerry    1156 5月  20 09:52 ojdbc-14.jar
+
+mvn install:install-file -Dfile=eigenbase-xom-1.3.4.jar -DgroupId=eigenbase -DartifactId=eigenbase-xom -Dversion=1.3.4  -Dpackaging=jar
+mvn install:install-file -Dfile=eigenbase-properties-1.1.4.jar -DgroupId=eigenbase -DartifactId=eigenbase-properties -Dversion=1.1.4  -Dpackaging=jar
+mvn install:install-file -Dfile=eigenbase-resgen-1.3.6.jar -DgroupId=eigenbase -DartifactId=eigenbase-resgen -Dversion=1.3.6  -Dpackaging=jar
