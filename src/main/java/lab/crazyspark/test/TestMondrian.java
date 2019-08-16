@@ -35,7 +35,7 @@ public class TestMondrian {
         System.out.println(olapConn);
 
         OlapStatement statement = olapConn.createStatement();
-        String mdx = "select {[Measures].[numb],[Measures].[averPri],[Measures].[totalSale]} on columns,{([proType].[allPro],[cusGender].[allGender])} on rows from [Sales]";
+        String mdx = "select {[Measures].[numb],[Measures].[averpri],[Measures].[totalsale]} on columns,{([protype].[allpro],[cusgender].[allgender])} on rows from [sales]";
         // 获取查询结果
         CellSet cs = statement.executeOlapQuery(mdx);
 

@@ -1,35 +1,41 @@
 <Schema name="hello">
-    <Cube name="Sales">
-        <!--  事实表(fact table)  -->
-        <Table name="sale"/>
-        <!--  客户维  -->
-        <Dimension name="cusGender" foreignKey="cusId">
-            <Hierarchy hasAll="true" allMemberName="allGender" primaryKey="cusId">
-                <Table name="customer"/>
-                <Level name="gender" column="gender"/>
-            </Hierarchy>
-        </Dimension>
-        <!--  产品类别维  -->
-        <Dimension name="protype" foreignKey="proId">
-            <Hierarchy hasAll="true" allMemberName="allPro" primaryKey="proId" primaryKeyTable="product">
-                <join leftKey="protypeId" rightKey="protypeId">
-                    <Table name="product"/>
-                    <Table name="producttype"/>
-                </join>
-                <Level name="protypeId" column="protypeId" nameColumn="protypeName" uniqueMembers="true" table="producttype"/>
-                <Level name="proId" column="proId" nameColumn="proName" uniqueMembers="true" table="product"/>
-            </Hierarchy>
-        </Dimension>
-        <Measure name="numb" column="number" aggregator="sum" datatype="Numeric"/>
-        <Measure name="totalSale" aggregator="sum" formatString="$ #,##0.00">
-            <!--  unitPrice*number所得值的列  -->
-            <MeasureExpression>
-                <SQL dialect="generic">unitPrice*number</SQL>
-            </MeasureExpression>
-        </Measure>
-        <CalculatedMember name="averPri" dimension="Measures">
-            <Formula>[Measures].[totalSale] / [Measures].[numb]</Formula>
-            <CalculatedMemberProperty name="FORMAT_STRING" value="$ #,##0.00"/>
-        </CalculatedMember>
-    </Cube>
+  <Cube name="Sales" visible="true" cache="true" enabled="true">
+    <Table name="sale">
+    </Table>
+    <Dimension visible="true" foreignKey="cusid" highCardinality="false" name="cusgender">
+      <Hierarchy visible="true" hasAll="true" allMemberName="allgender" primaryKey="cusid">
+        <Table name="customer">
+        </Table>
+        <Level name="gender" visible="true" column="gender" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" foreignKey="proid" highCardinality="false" name="protype">
+      <Hierarchy visible="true" hasAll="true" allMemberName="allpro" primaryKey="proid" primaryKeyTable="product">
+        <Join leftKey="protypeId" rightKey="protypeId">
+          <Table name="product">
+          </Table>
+          <Table name="producttype">
+          </Table>
+        </Join>
+        <Level name="protypeid" visible="true" table="producttype" column="protypeId" nameColumn="protypename" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="proid" visible="true" table="product" column="proId" nameColumn="proname" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="numb" column="number" datatype="Numeric" aggregator="sum">
+    </Measure>
+    <Measure name="totalsale" formatString="$ #,##0.00" aggregator="sum">
+      <MeasureExpression>
+        <SQL dialect="generic">
+          <![CDATA[unitPrice*number]]>
+        </SQL>
+      </MeasureExpression>
+    </Measure>
+    <CalculatedMember name="averpri" formula="[Measures].[totalsale] / [Measures].[numb]" dimension="Measures">
+      <CalculatedMemberProperty name="FORMAT_STRING" value="$ #,##0.00">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+  </Cube>
 </Schema>
